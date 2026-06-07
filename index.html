@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>THIRDTEEN | Creative &amp; Data Agency</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                "colors": {
+                    "outline": "#8b716e",
+                    "inverse-primary": "#ffb3ad",
+                    "on-tertiary-container": "#c1b59f",
+                    "on-surface-variant": "#58413f",
+                    "surface-bright": "#fcf9f8",
+                    "secondary-container": "#c0e5fe",
+                    "primary": "#6a020a",
+                    "surface-container-highest": "#e4e2e1",
+                    "surface-dim": "#dcd9d9",
+                    "surface": "#fcf9f8",
+                    "error": "#ba1a1a",
+                    "background": "#fcf9f8",
+                    "on-tertiary-fixed-variant": "#4e4635",
+                    "secondary-fixed": "#c5e7ff",
+                    "tertiary": "#383121",
+                    "inverse-on-surface": "#f3f0f0",
+                    "on-surface": "#1b1c1c",
+                    "outline-variant": "#dfbfbc",
+                    "on-primary-fixed-variant": "#891c1d",
+                    "primary-container": "#8b1e1e",
+                    "surface-container-high": "#eae7e7",
+                    "on-secondary-fixed-variant": "#274b5f",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#303030",
+                    "primary-fixed": "#ffdad6",
+                    "on-secondary-fixed": "#001e2d",
+                    "on-secondary-container": "#44677c",
+                    "tertiary-fixed": "#eee1c9",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-container": "#f0eded",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#d1c5ae",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#211b0c",
+                    "surface-variant": "#e4e2e1",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#ff9d95",
+                    "on-primary-fixed": "#410003",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#ffb3ad",
+                    "secondary": "#406278",
+                    "surface-tint": "#aa3531",
+                    "tertiary-container": "#4f4736",
+                    "on-background": "#1b1c1c",
+                    "secondary-fixed-dim": "#a8cbe4"
+                },
+                "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+                },
+                "spacing": {
+                    "margin-mobile": "16px",
+                    "container-max": "1280px",
+                    "margin-desktop": "64px",
+                    "unit": "8px",
+                    "gutter": "24px"
+                },
+                "fontFamily": {
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "body-md": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "headline-md": ["Montserrat"],
+                    "headline-xl": ["Montserrat"],
+                    "label-sm": ["Montserrat"],
+                    "label-lg": ["Montserrat"]
+                },
+                "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                }
+            },
+        }
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .bento-card {
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .bento-card:hover {
+        transform: translateY(-8px);
+    }
+    .number-badge {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 96px;
+        font-weight: 700;
+        line-height: 1;
+        color: #6a020a;
+        opacity: 0.08;
+        position: absolute;
+        top: -20px;
+        left: -10px;
+        pointer-events: none;
+    }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 px-16 py-4 flex justify-between items-center">
+    <div class="font-headline-md text-headline-md font-bold text-primary tracking-widest">THIRDTEEN</div>
+    <nav class="hidden md:flex gap-8 items-center">
+        <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-200" href="#about">About</a>
+        <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-200" href="#services">Services</a>
+        <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-200" href="#work">Work</a>
+        <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-200" href="#team">Team</a>
+        <a class="font-label-lg text-label-lg bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-container transition-all active:scale-95 duration-150" href="#contact">Let's Connect</a>
+    </nav>
+    <button class="md:hidden text-primary">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+</header>
+
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center pt-24 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <div class="w-full h-full bg-cover bg-center opacity-90" style="background-image: url('img/Opening img.jpg')"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/70 to-transparent"></div>
+    </div>
+    <div class="container mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+        <div class="max-w-3xl">
+            <span class="font-label-lg text-label-lg text-primary tracking-[0.2em] mb-4 block">CREATIVE &amp; DATA AGENCY</span>
+            <h1 class="font-headline-xl text-headline-xl text-on-surface mb-6">
+                THIRDTEEN<br/>
+                <span class="text-primary">Where Strategic Thinking Meets Creative Execution</span>
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl">
+                Strategic Marketing • Data Analytics • Content Production • Brand Design • Business Intelligence
+            </p>
+            <div class="flex gap-4 flex-wrap">
+                <a href="#work" class="bg-primary text-white font-label-lg text-label-lg px-10 py-4 rounded-full hover:shadow-lg transition-all active:scale-95">View Projects</a>
+                <a href="#about" class="border border-primary text-primary font-label-lg text-label-lg px-10 py-4 rounded-full hover:bg-primary/5 transition-all">Our Story</a>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <span class="material-symbols-outlined text-primary-container">expand_more</span>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="py-24 bg-surface" id="about">
+    <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="flex flex-col md:flex-row gap-16 items-center">
+            <div class="w-full md:w-1/2 relative">
+                <div class="aspect-square bg-secondary-container rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30">
+                    <img class="w-full h-full object-cover" src="img/Welcome to THIRDTEEN.png" alt="Welcome to THIRDTEEN"/>
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-primary rounded-2xl items-center justify-center p-8 text-white hidden md:flex">
+                    <p class="font-headline-md text-headline-md leading-tight text-center">Together,<br/>Always.</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <h2 class="font-headline-lg text-headline-lg mb-6">Welcome to THIRDTEEN</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                    At THIRDTEEN, we believe creativity is most powerful when supported by data. As a modern Creative &amp; Data Agency, we combine strategic thinking, analytical rigor, and compelling storytelling to create meaningful business impact.
+                </p>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-10">
+                    We help brands transform insights into action through market intelligence, visual communication, and integrated marketing solutions.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-label-lg text-label-lg text-primary tracking-widest uppercase mb-2">Mission</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant">To help brands make smarter decisions through the integration of creativity, data, and strategic thinking.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-label-lg text-label-lg text-primary tracking-widest uppercase mb-2">Vision</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant">To become a trusted strategic partner for businesses seeking sustainable growth in the digital economy.</p>
+                    </div>
+                </div>
+                <div class="mt-10">
+                    <h4 class="font-label-lg text-label-lg text-primary tracking-widest uppercase mb-4">Core Values</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-surface-container-high px-4 py-2 rounded-full text-label-sm font-label-sm text-on-surface-variant">Insight-Driven</span>
+                        <span class="bg-surface-container-high px-4 py-2 rounded-full text-label-sm font-label-sm text-on-surface-variant">Creativity with Purpose</span>
+                        <span class="bg-surface-container-high px-4 py-2 rounded-full text-label-sm font-label-sm text-on-surface-variant">Collaboration</span>
+                        <span class="bg-surface-container-high px-4 py-2 rounded-full text-label-sm font-label-sm text-on-surface-variant">Continuous Innovation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-24 bg-surface-container-low" id="services">
+    <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="mb-16">
+            <span class="font-label-lg text-label-lg text-primary tracking-[0.2em] uppercase mb-3 block">What We Do</span>
+            <h2 class="font-headline-lg text-headline-lg mb-4">Our Core Capabilities</h2>
+            <div class="w-24 h-1 bg-primary"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+            <!-- Strategic Planning -->
+            <div class="bg-white rounded-3xl p-8 border border-outline-variant/30 bento-card flex flex-col h-full">
+                <div class="bg-tertiary-container w-12 h-12 rounded-full flex items-center justify-center mb-6">
+                    <span class="material-symbols-outlined text-on-tertiary-container">strategy</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md mb-4">Strategic Planning</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6">SWOT, PESTEL, Porter's Five Forces, and Customer Journey Mapping to define your competitive edge.</p>
+                <ul class="space-y-2 mt-auto">
+                    <li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">check_circle</span><span class="font-label-sm text-label-sm">Market Segmentation</span></li>
+                    <li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">check_circle</span><span class="font-label-sm text-label-sm">Customer Journey Mapping</span></li>
+                    <li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">check_circle</span><span class="font-label-sm text-label-sm">Competitive Analysis</span></li>
+                </ul>
+            </div>
+            <!-- Data Analytics -->
+            <div class="bg-white rounded-3xl p-8 border border-outline-variant/30 bento-card flex flex-col h-full">
+                <div class="bg-secondary-container w-12 h-12 rounded-full flex items-center justify-center mb-6">
+                    <span class="material-symbols-outlined text-secondary">query_stats</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md mb-4">Data Analytics &amp; Intelligence</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6">Market research, industry analysis, and dashboard development to transform data into business intelligence.</p>
+                <ul class="space-y-2 mt-auto">
+                    <li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">check_circle</span><span class="font-label-sm text-label-sm">Data Visualization</span></li>
+                    <li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">check_circle</span><span class="font-label-sm text-label-sm">Machine Learning</span></li>
+                    <li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">check_circle</span><span class="font-label-sm text-label-sm">Performance Measurement</span></li>
+                </ul>
+            </div>
+            <!-- Creative Production -->
+            <div class="bg-primary rounded-3xl p-8 bento-card text-white flex flex-col h-full">
+                <div class="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+                    <span class="material-symbols-outlined text-white">videocam</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md mb-4">Creative Production</h3>
+                <p class="font-body-md text-body-md text-white/80 mb-6">Creative direction, content strategy, and high-end video production that moves audiences.</p>
+                <ul class="space-y-2 mt-auto">
+                    <li class="flex items-center gap-2 text-white/80"><span class="material-symbols-outlined text-sm text-white">check_circle</span><span class="font-label-sm text-label-sm">Video Production</span></li>
+                    <li class="flex items-center gap-2 text-white/80"><span class="material-symbols-outlined text-sm text-white">check_circle</span><span class="font-label-sm text-label-sm">Motion Graphics</span></li>
+                    <li class="flex items-center gap-2 text-white/80"><span class="material-symbols-outlined text-sm text-white">check_circle</span><span class="font-label-sm text-label-sm">Content Strategy</span></li>
+                </ul>
+            </div>
+            <!-- Design & Brand -->
+            <div class="bg-white rounded-3xl p-8 border border-outline-variant/30 bento-card flex flex-col h-full">
+                <div class="bg-tertiary-fixed w-12 h-12 rounded-full flex items-center justify-center mb-6">
+                    <span class="material-symbols-outlined text-tertiary">palette</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md mb-4">Design &amp; Brand Experience</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6">Brand identity, typography systems, and UI/UX design that resonates with your audience.</p>
+                <ul class="space-y-2 mt-auto">
+                    <li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">check_circle</span><span class="font-label-sm text-label-sm">Brand Identity</span></li>
+                    <li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">check_circle</span><span class="font-label-sm text-label-sm">Typography Systems</span></li>
+                    <li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">check_circle</span><span class="font-label-sm text-label-sm">UI/UX Design</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Work Section -->
+<section class="py-24 bg-surface" id="work">
+    <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="flex justify-between items-end mb-16">
+            <div>
+                <span class="font-label-lg text-label-lg text-primary tracking-[0.2em] uppercase mb-3 block">Our Portfolio</span>
+                <h2 class="font-headline-lg text-headline-lg mb-4">Selected Work</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">A collection of stories we've told through data and design.</p>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Project 1 -->
+            <article class="group cursor-pointer">
+                <div class="aspect-[4/3] bg-surface-container-high rounded-3xl overflow-hidden mb-6">
+                    <img alt="Banh Mi Hoang Sa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="img/Bánh mì Hoàng Sa.png"/>
+                </div>
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <h4 class="font-headline-md text-headline-md group-hover:text-primary transition-colors">Banh Mi Hoang Sa</h4>
+                        <p class="font-label-lg text-label-lg text-on-surface-variant mt-2">F&amp;B Industry • Storytelling • Visual Identity</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm">Kieu Diem Huong</span>
+                            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm">Phung Thuy Trang</span>
+                            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm">Nguyen Thuy Linh</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-primary mt-1 opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
+                </div>
+            </article>
+            <!-- Project 2 -->
+            <article class="group cursor-pointer">
+                <div class="aspect-[4/3] bg-surface-container-high rounded-3xl overflow-hidden mb-6">
+                    <img alt="The Starting Point of Connection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="img/Campaign Highland.jpg"/>
+                </div>
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <h4 class="font-headline-md text-headline-md group-hover:text-primary transition-colors">The Starting Point of Connection</h4>
+                        <p class="font-label-lg text-label-lg text-on-surface-variant mt-2">Highlands Coffee • Campaign • Communication Planning</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm">Kieu Diem Huong</span>
+                            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm">Truong Hoang Yen Nhi</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-primary mt-1 opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
+                </div>
+            </article>
+            <!-- Project 3 -->
+            <article class="group cursor-pointer">
+                <div class="aspect-[4/3] bg-surface-container-high rounded-3xl overflow-hidden mb-6">
+                    <img alt="Educational Data Analysis Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="img/Phân tích dữ liệu GD (campaign).png"/>
+                </div>
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <h4 class="font-headline-md text-headline-md group-hover:text-primary transition-colors">Educational Data Analysis Project</h4>
+                        <p class="font-label-lg text-label-lg text-on-surface-variant mt-2">Education Industry • Dashboard Design • Visualization</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm">Nguyen Ngoc Hoang Giang</span>
+                            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm">Nguyen Thuy Linh</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-primary mt-1 opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
+                </div>
+            </article>
+            <!-- Project 4 -->
+            <article class="group cursor-pointer">
+                <div class="aspect-[4/3] bg-surface-container-high rounded-3xl overflow-hidden mb-6">
+                    <img alt="Global Telecommunications Equipment Industry Analysis" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="img/Deep research.png"/>
+                </div>
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <h4 class="font-headline-md text-headline-md group-hover:text-primary transition-colors">Global Telecommunications Equipment Industry Analysis</h4>
+                        <p class="font-label-lg text-label-lg text-on-surface-variant mt-2">Telecommunications • Industry Analysis • Strategic Assessment</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm">Nguyen Ngoc Hoang Giang</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-primary mt-1 opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
+                </div>
+            </article>
+            <!-- Project 5 - UNIQLO -->
+            <article class="group cursor-pointer md:col-span-2">
+                <div class="aspect-[16/6] bg-surface-container-high rounded-3xl overflow-hidden mb-6">
+                    <img alt="UNIQLO Product Launch Campaign" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="img/Uniqlo campaign.png"/>
+                </div>
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <h4 class="font-headline-md text-headline-md group-hover:text-primary transition-colors">UNIQLO Product Launch Campaign</h4>
+                        <p class="font-label-lg text-label-lg text-on-surface-variant mt-2">Retail / Fashion • Product Launch • Media Coordination</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm">Truong Hoang Yen Nhi</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-primary mt-1 opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="py-24 bg-surface-container" id="team">
+    <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="text-center mb-16">
+            <span class="font-label-lg text-label-lg text-primary tracking-[0.2em] uppercase mb-3 block">Our People</span>
+            <h2 class="font-headline-lg text-headline-lg">Meet the Visionaries</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-gutter">
+            <!-- Kieu Diem Huong -->
+            <div class="group text-center">
+                <div class="aspect-[3/4] bg-white rounded-3xl overflow-hidden shadow-sm border border-outline-variant/30 mb-6">
+                    <img alt="Kieu Diem Huong" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="img/Hương.jpg"/>
+                </div>
+                <h5 class="font-headline-md text-headline-md text-base">Kieu Diem Huong</h5>
+                <p class="font-label-lg text-label-lg text-primary mb-2">Creative Director</p>
+                <p class="font-label-sm text-label-sm text-on-surface-variant px-2">5 years in art direction &amp; digital content.</p>
+                <div class="flex flex-wrap justify-center gap-1 mt-3">
+                    <span class="bg-surface-container-high px-2 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant text-xs">Storytelling</span>
+                    <span class="bg-surface-container-high px-2 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant text-xs">Campaign Dev</span>
+                </div>
+            </div>
+            <!-- Nguyen Ngoc Hoang Giang -->
+            <div class="group text-center">
+                <div class="aspect-[3/4] bg-white rounded-3xl overflow-hidden shadow-sm border border-outline-variant/30 mb-6">
+                    <img alt="Nguyen Ngoc Hoang Giang" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="img/Giang.jpg"/>
+                </div>
+                <h5 class="font-headline-md text-headline-md text-base">Nguyen Ngoc Hoang Giang</h5>
+                <p class="font-label-lg text-label-lg text-primary mb-2">Data Analyst &amp; Strategist</p>
+                <p class="font-label-sm text-label-sm text-on-surface-variant px-2">4 years in market research &amp; data analytics.</p>
+                <div class="flex flex-wrap justify-center gap-1 mt-3">
+                    <span class="bg-surface-container-high px-2 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant text-xs">Python</span>
+                    <span class="bg-surface-container-high px-2 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant text-xs">SHAP</span>
+                    <span class="bg-surface-container-high px-2 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant text-xs">PESTEL</span>
+                </div>
+            </div>
+            <!-- Phung Thuy Trang -->
+            <div class="group text-center">
+                <div class="aspect-[3/4] bg-white rounded-3xl overflow-hidden shadow-sm border border-outline-variant/30 mb-6">
+                    <img alt="Phung Thuy Trang" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="img/Trang.jpg"/>
+                </div>
+                <h5 class="font-headline-md text-headline-md text-base">Phung Thuy Trang</h5>
+                <p class="font-label-lg text-label-lg text-primary mb-2">Video Producer &amp; Creator</p>
+                <p class="font-label-sm text-label-sm text-on-surface-variant px-2">3 years in videography &amp; post-production.</p>
+                <div class="flex flex-wrap justify-center gap-1 mt-3">
+                    <span class="bg-surface-container-high px-2 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant text-xs">Motion Design</span>
+                    <span class="bg-surface-container-high px-2 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant text-xs">Editing</span>
+                </div>
+            </div>
+            <!-- Truong Hoang Yen Nhi -->
+            <div class="group text-center">
+                <div class="aspect-[3/4] bg-white rounded-3xl overflow-hidden shadow-sm border border-outline-variant/30 mb-6">
+                    <img alt="Truong Hoang Yen Nhi" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="img/Nhi.jpg"/>
+                </div>
+                <h5 class="font-headline-md text-headline-md text-base">Truong Hoang Yen Nhi</h5>
+                <p class="font-label-lg text-label-lg text-primary mb-2">Marketing &amp; Account Executive</p>
+                <p class="font-label-sm text-label-sm text-on-surface-variant px-2">4 years in client servicing &amp; management.</p>
+                <div class="flex flex-wrap justify-center gap-1 mt-3">
+                    <span class="bg-surface-container-high px-2 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant text-xs">Account Mgmt</span>
+                    <span class="bg-surface-container-high px-2 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant text-xs">Trend Analysis</span>
+                </div>
+            </div>
+            <!-- Nguyen Thuy Linh -->
+            <div class="group text-center">
+                <div class="aspect-[3/4] bg-white rounded-3xl overflow-hidden shadow-sm border border-outline-variant/30 mb-6">
+                    <img alt="Nguyen Thuy Linh" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="img/Linh.png"/>
+                </div>
+                <h5 class="font-headline-md text-headline-md text-base">Nguyen Thuy Linh</h5>
+                <p class="font-label-lg text-label-lg text-primary mb-2">Art Director</p>
+                <p class="font-label-sm text-label-sm text-on-surface-variant px-2">5 years in graphic design &amp; brand identity.</p>
+                <div class="flex flex-wrap justify-center gap-1 mt-3">
+                    <span class="bg-surface-container-high px-2 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant text-xs">Brand Identity</span>
+                    <span class="bg-surface-container-high px-2 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant text-xs">UI/UX</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Org chart note -->
+        <div class="mt-16 bg-white rounded-3xl p-8 border border-outline-variant/30 max-w-2xl mx-auto text-center">
+            <h4 class="font-label-lg text-label-lg text-primary tracking-widest uppercase mb-6">Organizational Structure</h4>
+            <div class="font-body-md text-body-md text-on-surface-variant space-y-3">
+                <div class="bg-primary text-white rounded-xl px-6 py-3 inline-block font-label-lg text-label-lg">Managing Board</div>
+                <div class="flex flex-wrap justify-center gap-3 mt-4">
+                    <span class="border border-outline-variant rounded-full px-4 py-2 text-label-sm font-label-sm">Creative Director</span>
+                    <span class="border border-outline-variant rounded-full px-4 py-2 text-label-sm font-label-sm">Data Analyst &amp; Strategist</span>
+                    <span class="border border-outline-variant rounded-full px-4 py-2 text-label-sm font-label-sm">Video Producer</span>
+                    <span class="border border-outline-variant rounded-full px-4 py-2 text-label-sm font-label-sm">Marketing &amp; Account</span>
+                    <span class="border border-outline-variant rounded-full px-4 py-2 text-label-sm font-label-sm">Art Director</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why THIRDTEEN Section -->
+<section class="py-24 bg-surface-container-low">
+    <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="mb-16 text-center">
+            <span class="font-label-lg text-label-lg text-primary tracking-[0.2em] uppercase mb-3 block">Our Difference</span>
+            <h2 class="font-headline-lg text-headline-lg">Why THIRDTEEN</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+            <div class="bg-white rounded-3xl p-8 border border-outline-variant/30 bento-card text-center">
+                <div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <span class="material-symbols-outlined text-primary text-3xl">stars</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md mb-3">Creative Excellence</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">Award-worthy concepts driven by genuine passion for storytelling and visual craft.</p>
+            </div>
+            <div class="bg-primary rounded-3xl p-8 bento-card text-center text-white">
+                <div class="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <span class="material-symbols-outlined text-white text-3xl">insights</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md mb-3">Data Intelligence</h3>
+                <p class="font-body-md text-body-md text-white/80">Every creative decision is backed by research, analytics, and measurable outcomes.</p>
+            </div>
+            <div class="bg-white rounded-3xl p-8 border border-outline-variant/30 bento-card text-center">
+                <div class="bg-secondary-container w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <span class="material-symbols-outlined text-secondary text-3xl">groups</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md mb-3">Cross-Functional Collaboration</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">A multidisciplinary team that works seamlessly across strategy, creative, and data.</p>
+            </div>
+            <div class="bg-white rounded-3xl p-8 border border-outline-variant/30 bento-card text-center">
+                <div class="bg-tertiary-fixed w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <span class="material-symbols-outlined text-tertiary text-3xl">trending_up</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md mb-3">Business Impact</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">We focus on outcomes that matter — brand growth, market share, and real ROI.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-24 bg-surface" id="contact">
+    <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="bg-tertiary-container rounded-[40px] overflow-hidden flex flex-col lg:flex-row">
+            <div class="lg:w-1/2 p-12 lg:p-20 flex flex-col justify-center">
+                <span class="font-label-lg text-label-lg text-primary-fixed tracking-[0.2em] uppercase mb-4 block">Get In Touch</span>
+                <h2 class="font-headline-xl text-headline-xl text-on-tertiary-fixed mb-6">Ready to create impact?</h2>
+                <p class="font-body-lg text-body-lg text-on-tertiary-fixed/80 mb-10">
+                    We're always looking for new challenges and meaningful collaborations. Reach out and let's start something beautiful together.
+                </p>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4 text-on-tertiary-fixed">
+                        <span class="material-symbols-outlined text-primary-fixed">mail</span>
+                        <span class="font-label-lg text-label-lg">[Insert Email]</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-on-tertiary-fixed">
+                        <span class="material-symbols-outlined text-primary-fixed">phone</span>
+                        <span class="font-label-lg text-label-lg">[Insert Phone Number]</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-on-tertiary-fixed">
+                        <span class="material-symbols-outlined text-primary-fixed">location_on</span>
+                        <span class="font-label-lg text-label-lg">Hanoi, Vietnam</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-on-tertiary-fixed">
+                        <span class="material-symbols-outlined text-primary-fixed">language</span>
+                        <span class="font-label-lg text-label-lg">[Insert Website]</span>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 bg-white p-12 lg:p-20">
+                <form class="space-y-6" onsubmit="event.preventDefault(); alert('Message sent! Together, Always.');">
+                    <div class="space-y-2">
+                        <label class="font-label-lg text-label-lg text-on-surface">Your Name</label>
+                        <input class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary transition-all" placeholder="Nguyen Van A" type="text"/>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-label-lg text-label-lg text-on-surface">Email Address</label>
+                        <input class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary transition-all" placeholder="hello@example.com" type="email"/>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-label-lg text-label-lg text-on-surface">Service Interest</label>
+                        <select class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary transition-all text-on-surface-variant">
+                            <option>Strategic Planning</option>
+                            <option>Data Analytics &amp; Intelligence</option>
+                            <option>Creative Production</option>
+                            <option>Design &amp; Brand Experience</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-label-lg text-label-lg text-on-surface">Message</label>
+                        <textarea class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary transition-all" placeholder="Tell us about your vision..." rows="4"></textarea>
+                    </div>
+                    <button class="w-full bg-primary text-white font-label-lg text-label-lg py-5 rounded-full hover:bg-primary-container transition-all active:scale-95 shadow-md" type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="w-full py-12 px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter bg-tertiary-container text-on-tertiary-container">
+    <div class="flex flex-col items-center md:items-start gap-4">
+        <div class="font-headline-md font-bold text-on-tertiary-container tracking-widest">THIRDTEEN</div>
+        <p class="font-label-sm text-label-sm text-on-tertiary-container/60">Creative &amp; Data Agency</p>
+        <p class="font-body-md text-body-md text-on-tertiary-container/60">© 2024 THIRDTEEN. Together, Always.</p>
+    </div>
+    <div class="flex gap-8 items-center flex-wrap justify-center">
+        <a class="font-label-sm text-label-sm text-on-tertiary-container/80 hover:text-primary-fixed transition-colors" href="#about">About</a>
+        <a class="font-label-sm text-label-sm text-on-tertiary-container/80 hover:text-primary-fixed transition-colors" href="#services">Services</a>
+        <a class="font-label-sm text-label-sm text-on-tertiary-container/80 hover:text-primary-fixed transition-colors" href="#work">Work</a>
+        <a class="font-label-sm text-label-sm text-on-tertiary-container/80 hover:text-primary-fixed transition-colors" href="#team">Team</a>
+        <a class="font-label-sm text-label-sm text-on-tertiary-container/80 hover:text-primary-fixed transition-colors" href="#">LinkedIn</a>
+        <a class="font-label-sm text-label-sm text-on-tertiary-container/80 hover:text-primary-fixed transition-colors" href="#">Instagram</a>
+    </div>
+</footer>
+
+<script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Bento card z-index on hover
+    document.querySelectorAll('.bento-card').forEach(card => {
+        card.addEventListener('mouseenter', () => { card.style.zIndex = '10'; });
+        card.addEventListener('mouseleave', () => { card.style.zIndex = '1'; });
+    });
+</script>
+</body>
+</html>
