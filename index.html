@@ -289,7 +289,7 @@
             <!-- Project 1 -->
             <article class="group cursor-pointer">
                 <div class="aspect-[4/3] bg-surface-container-high rounded-3xl overflow-hidden mb-6">
-                    <img alt="Banh Mi Hoang Sa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="img/Bánh mì Hoàng Sa.png"/>
+                    <img alt="Banh Mi Hoang Sa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 cursor-zoom-in" src="img/Bánh mì Hoàng Sa.png" onclick="openLightbox(this.src, this.alt)"/>
                 </div>
                 <div class="flex items-start justify-between gap-4">
                     <div>
@@ -307,7 +307,7 @@
             <!-- Project 2 -->
             <article class="group cursor-pointer">
                 <div class="aspect-[4/3] bg-surface-container-high rounded-3xl overflow-hidden mb-6">
-                    <img alt="The Starting Point of Connection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="img/Campaign Highland.jpg"/>
+                    <img alt="The Starting Point of Connection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 cursor-zoom-in" src="img/Campaign Highland.jpg" onclick="openLightbox(this.src, this.alt)"/>
                 </div>
                 <div class="flex items-start justify-between gap-4">
                     <div>
@@ -324,7 +324,7 @@
             <!-- Project 3 -->
             <article class="group cursor-pointer">
                 <div class="aspect-[4/3] bg-surface-container-high rounded-3xl overflow-hidden mb-6">
-                    <img alt="Educational Data Analysis Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="img/Phân tích dữ liệu GD (campaign).png"/>
+                    <img alt="Educational Data Analysis Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 cursor-zoom-in" src="img/Phân tích dữ liệu GD (campaign).png" onclick="openLightbox(this.src, this.alt)"/>
                 </div>
                 <div class="flex items-start justify-between gap-4">
                     <div>
@@ -341,7 +341,7 @@
             <!-- Project 4 -->
             <article class="group cursor-pointer">
                 <div class="aspect-[4/3] bg-surface-container-high rounded-3xl overflow-hidden mb-6">
-                    <img alt="Global Telecommunications Equipment Industry Analysis" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="img/Deep research.png"/>
+                    <img alt="Global Telecommunications Equipment Industry Analysis" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 cursor-zoom-in" src="img/Deep research.png" onclick="openLightbox(this.src, this.alt)"/>
                 </div>
                 <div class="flex items-start justify-between gap-4">
                     <div>
@@ -357,7 +357,7 @@
             <!-- Project 5 - UNIQLO -->
             <article class="group cursor-pointer md:col-span-2">
                 <div class="bg-surface-container-high rounded-3xl overflow-hidden mb-6">
-                    <img alt="UNIQLO Product Launch Campaign" class="w-full object-contain group-hover:scale-105 transition-transform duration-700" src="img/Uniqlo campaign.png"/>
+                    <img alt="UNIQLO Product Launch Campaign" class="w-full object-contain group-hover:scale-105 transition-transform duration-700 cursor-zoom-in" src="img/Uniqlo campaign.png" onclick="openLightbox(this.src, this.alt)"/>
                 </div>
                 <div class="flex items-start justify-between gap-4">
                     <div>
@@ -583,7 +583,35 @@
     </div>
 </footer>
 
+<!-- Lightbox Modal -->
+<div id="lightbox" class="fixed inset-0 z-[9999] hidden items-center justify-center" style="background:rgba(0,0,0,0.92);" onclick="closeLightbox(event)">
+    <button onclick="closeLightbox()" class="absolute top-6 right-8 text-white hover:text-gray-300 transition-colors z-10" style="font-size:2.5rem; line-height:1; background:none; border:none; cursor:pointer;">&times;</button>
+    <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[90vh] object-contain rounded-2xl shadow-2xl" style="transition: transform 0.3s ease;" onclick="event.stopPropagation()"/>
+</div>
+
 <script>
+    function openLightbox(src, alt) {
+        const lb = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        img.src = src;
+        img.alt = alt;
+        lb.classList.remove('hidden');
+        lb.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(event) {
+        if (event && event.target === document.getElementById('lightbox-img')) return;
+        const lb = document.getElementById('lightbox');
+        lb.classList.add('hidden');
+        lb.classList.remove('flex');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+    });
+
     // Smooth scroll for nav links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
